@@ -1,0 +1,4 @@
+pip install django
+pip install django-crispy-forms
+(jei naudojama mysql)
+pip install mysqlclient
