@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<form style="margin-top: 50px">
+    <div class="row">
+        <div class="col-md-5">
+            <select id="area_selector" class="form-control" name="area">
+                <option value="" disabled selected hidden>chose area</option>
+                {% for area in areas %}
+
+                <option value="{{ area.id }}">{{area.name}}</option>
+
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-5">
+            <div id="field_selector_placeholder">
+                <select disabled class="form-control">
+                    <option value="" disabled selected hidden>chose field</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" id="find_btn" class="btn btn-info btn-block">find</button>
+        </div>
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  $(document).ready(function(){
+
+    $("#area_selector").change(function () {
+      var areaId = $(this).val();  // get the selected country ID from the HTML input
+
+      
+        $.ajax({
+        type: 'GET',
+        data: {
+          'area': areaId       // add the country id to the GET parameters
+        },
+        url: 'http://127.0.0.1:8000/admission/ajax/load_fields/',
+        success: function (data) {
+            $("#field_selector_placeholder").html(data);
+        },
+        error: function () {
+            alert('error loading data');
+        }
+        });
+        
+    });
+
+    $('#find_btn').on('click', function(event) {
+    event.preventDefault();
+    var area = $('#area_selector').val();
+    var field = $('#field_selector').val();
+    if(field != null && field != -1)
+    {
+        var url = 'http://127.0.0.1:8000/admission/field/' + field
+    location.replace(url);
+    }
+
+});
+
+  });
+
+</script>
+
+
+{% endblock %}

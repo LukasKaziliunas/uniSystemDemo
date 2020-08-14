@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<h2>Register</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ account_form|crispy }}
+    {{ student_form|crispy }}
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+{% endblock %}
+
+<!--
+{% for field in registration_form %}
+    <p>
+        {{field.label_tag}}
+        {{field}}
+
+        {% if field.help_text %}
+            <small style="color: grey;">{{field.help_text}}</small>
+        {% endif %}
+
+        {% for error in field.errors %}
+            <p style="color: red;">{{error}} </p>
+        {% endfor %}
+    </p>
+    {% endfor %}
+
+-->

@@ -1,0 +1,6 @@
+<select id="field_selector" class="form-control">
+<option value="-1">---------</option>
+{% for field in fields %}
+<option value="{{ field.id }}">{{ field.name }}</option>
+{% endfor %}
+</select>

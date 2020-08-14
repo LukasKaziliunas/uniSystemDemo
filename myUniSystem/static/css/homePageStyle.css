@@ -1,0 +1,74 @@
+
+.panel-body {
+    min-height: 250px;
+    height: auto;
+    border: 2px solid grey;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#student-info-panel {
+    height: 100%;
+    padding-bottom: 20px;
+}
+
+#student-info-panel-body {
+   height: 100%;
+
+}
+
+
+
+.content-area {
+    width: auto;
+    height: auto;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.grade-link {
+    position: absolute;
+    right: 0;
+    margin-right: 50px;
+}
+
+#timetable table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#timetable-buttons {
+    height: 50px;
+    width: 100%;
+
+}
+
+.arrow-btn-box {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    position: absolute;
+    right: 0;
+    margin-right: 50px;
+    position:absolute;
+    bottom:0;
+}
+
+#timetable-panel-body {
+
+    min-height: 500px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#timetable table {
+   width: 100%;
+
+}
+
+#timetable td {
+    min-height: 50px;
+ 
+ }

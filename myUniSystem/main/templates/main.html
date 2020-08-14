@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+ <h2>Main page</h2>
+   {% if user.is_authenticated %}
+           <p>Loged in as</p>
+           <p>{{user.email}}</p>
+    {% else %}
+            <p>not loged in</p>
+       {% endif %}
+{% endblock %}

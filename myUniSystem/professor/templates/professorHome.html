@@ -1,0 +1,50 @@
+{% extends 'userBaseHome.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/homePageStyle.css' %}">
+
+
+        <div class="row">
+            <div class="col-lg-4" id="student-info">
+                <div class="panel panel-default" id="student-info-panel">
+                    <div class="panel-body" id="student-info-panel-body">
+                        <div class="content-area">
+                                <ul>
+                                    {% for subject in subjects %}
+                                <li style="margin-bottom:10px">
+                                    <a href="/professor/subject/{{subject.pk}}">  {{ subject }} </a>
+                                </li>
+                                    {% endfor %}
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8" id="area4">
+                <div class="panel panel-default">
+                    <div class="panel-body" id="timetable-panel-body">
+
+                        <div id="timetable">
+
+                        </div>
+                        <div id="timetable-buttons">
+                            <div class="arrow-btn-box">
+                                <span id="week-numb"></span>
+                                <button type="button" class="btn btn-info btn-sm " id="arrow-left"> <span
+                                        style="font-size:large;">&larr;</span> </button>
+                                <button type="button" class="btn btn-info btn-sm " id="arrow-right"> <span
+                                        style="font-size:large;">&rarr;</span> </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+<script src="{% static '/js/timetable.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="card" style="width: 100%;">
+  <div class="card-body">
+    <h5 class="card-title">{{field.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{field.area}}</h6>
+    <p class="card-text">{{field.description}}</p>
+    <a href="#" class="card-link">subjects</a>
+    <a href="#" class="card-link">professors</a>
+  </div>
+</div>
+
+{% endblock %}

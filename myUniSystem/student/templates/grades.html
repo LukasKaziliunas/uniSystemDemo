@@ -1,0 +1,73 @@
+{% extends 'userBaseHome.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">week</th>
+        <th scope="col">1</th>
+        <th scope="col">2</th>
+        <th scope="col">3</th>
+        <th scope="col">4</th>
+        <th scope="col">5</th>
+        <th scope="col">6</th>
+        <th scope="col">7</th>
+        <th scope="col">8</th>
+        <th scope="col">9</th>
+        <th scope="col">10</th>
+        <th scope="col">11</th>
+        <th scope="col">12</th>
+        <th scope="col">13</th>
+        <th scope="col">14</th>
+        <th scope="col">15</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">type</th>
+        {% for x in range %}
+
+            {% if x in weeks %}
+
+                <td>
+                {% for examin in stud_examinations %}
+                    {% if examin.examination.week == x %}
+                        {{examin.examination.type}}
+                    {% endif %}
+                {% endfor %}
+                </td>
+
+            {% else %}
+                <td> </td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    <tr>
+        <th scope="row">grade</th>
+        {% for x in range %}
+
+            {% if x in weeks %}
+
+                <td>
+                {% for examin in stud_examinations %}
+                    {% if examin.examination.week == x %}
+                        {% if examin.grade != 0 %}
+                            {{examin.grade}}
+                        {% else %}
+                            -
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                </td>
+
+            {% else %}
+                <td> </td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'userBaseHome.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/homePageStyle.css' %}">
+
+<div class="row">
+
+    <div class="col-lg-9 col-md-7" id="left_box">
+
+        <div class="row">
+            <div class="col-lg-4" id="student-info">
+                <div class="panel panel-default" id="student-info-panel">
+                    <div class="panel-body" id="student-info-panel-body">
+                        <div class="content-area">
+                            <p><span style="font-weight: bold;">{{profile.code}}</span> {{user.first_name}}
+                                {{user.last_name}} </p>
+                            <p>{{profile.studyGroup.field.area}} </p>
+                            <p><span style="font-weight: bold;">{{profile.studyGroup.field.code}}</span>
+                                {{profile.studyGroup.field}}</p>
+                            <p>avarage grade - {{profile.avarageScore}}</p>
+                            <p>semester - {{semester}}</p>
+                            <p>study group - {{profile.studyGroup}}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8" id="area4">
+                <div class="panel panel-default">
+                    <div class="panel-body" id="timetable-panel-body">
+                    
+                        <div id="timetable">
+
+                        </div>
+                        <div id="timetable-buttons">
+                            <div class="arrow-btn-box">
+                                <span id="week-numb"></span>
+                                <button type="button" class="btn btn-info btn-sm " id="arrow-left"> <span
+                                        style="font-size:large;">&larr;</span> </button>
+                                <button type="button" class="btn btn-info btn-sm " id="arrow-right"> <span
+                                        style="font-size:large;">&rarr;</span> </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6" id="subjects">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="content-area">
+                            <ul>
+                                {% for stud_subject in studentSubjects %}
+                                <li style="margin-bottom:10px">
+
+                                    {{stud_subject.subject}}
+
+                                    <a href="/student/assessments/{{stud_subject.pk}}" class="grade-link">
+                                        <button type="button" class="btn btn-info btn-sm">grades</button>
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-5" id="right_box">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3>Info</h3>
+                {% lorem %}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{% static '/js/timetable.js' %}"></script>
+
+{% endblock %}

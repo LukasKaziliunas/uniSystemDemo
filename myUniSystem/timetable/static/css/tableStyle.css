@@ -1,0 +1,20 @@
+table {
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 1px solid black;
+}
+
+.entry {
+ background-color: lightyellow;
+}
+
+.entry p {
+margin : 5px;
+font-size:small;
+}
+
+.subject_name {
+  font-weight: bold; 
+}

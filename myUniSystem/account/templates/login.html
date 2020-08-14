@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<h2>Login</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ login_form|crispy }}
+    <button type="submit">Login</button>
+</form>
+
+    <br>
+    <div>
+        <h3>demo logins</h3>
+        <button id="login_student">login as student</button><br>
+        <button id="login_proff">login as proffesor</button><br>
+         <button id="login_staff">login as staff</button><br>
+    </div>
+
+
+<script>
+  $(document).ready(function(){
+
+   $('#login_student').on('click', function(){
+
+    $('#id_email').val("studentDemo@123.com");
+     $('#id_password').val("demo1234");
+   })
+
+
+   $('#login_proff').on('click', function(){
+
+    $('#id_email').val("prof1@123.com");
+     $('#id_password').val("foobar444");
+   })
+
+   $('#login_staff').on('click', function(){
+
+    $('#id_email').val("staff@123.com");
+     $('#id_password').val("foobar777");
+   })
+
+  });
+
+</script>
+
+{% endblock %}

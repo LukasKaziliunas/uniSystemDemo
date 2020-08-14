@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<h2>Register subject classes</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ timetableEntry_form|crispy }}
+    <hr>
+    <button type="button" class="btn btn-secondary selections" id="btn-all">all</button>
+    <button type="button" class="btn btn-secondary selections" id="btn-even">even</button>
+    <button type="button" class="btn btn-secondary selections" id="btn-odd">odd</button>
+    {{ weeksSelection_form|crispy }}
+
+    <button type="submit" class="btn btn-primary">save</button>
+</form>
+
+<script>
+$(document).ready(function(){
+
+    $('.custom_time').prop('disabled', function(i, v) { return 1; });
+
+    $('#is_custom_btn').click(function() {
+        $('.custom_time').prop('disabled', function(i, v) { return !v; });
+    });
+
+    $('.selections').on('click', function(event) {
+      var id = $(this).attr('id')
+        switch(id) {
+            case 'btn-all':
+                checkbox_selector(3)
+            break;
+            case 'btn-even':
+                checkbox_selector(1)
+            break;
+            case 'btn-odd':
+                checkbox_selector(2)
+            break;
+            default:
+                console.log('wrong selection button id')
+        }
+    });
+
+    function checkbox_selector(mode) {
+
+        //modes:
+        // 1 = even, 2 = odds,  3 = all
+
+        var checkboxes = document.querySelectorAll('input[name="weeks"]');
+        
+            if(mode == 1)
+            {
+                for (var i = 0; i < checkboxes.length; i++)
+                {
+                    if(isEven(i))
+                    checkboxes[i].checked = true;
+                    else
+                    checkboxes[i].checked = false;
+                }
+            }
+            else if(mode == 2)
+            {
+                for (var i = 0; i < checkboxes.length; i++)
+                {
+                    if(!isEven(i))
+                    checkboxes[i].checked = true;
+                    else
+                    checkboxes[i].checked = false;
+                }
+            }
+            else if(mode == 3)
+            {
+                for (var i = 0; i < checkboxes.length; i++)
+                {
+                    checkboxes[i].checked = true;
+                }
+            }
+            else
+            console.log("mode not defined")       
+        }
+
+    function isEven(number)
+    {
+        return number % 2 == 0
+    }
+});
+
+</script>
+
+{% endblock %}
