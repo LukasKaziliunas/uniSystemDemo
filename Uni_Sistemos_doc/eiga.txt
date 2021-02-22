@@ -1,0 +1,48 @@
+instaliuoti django :  pip install django==2.1.7
+pip install django-crispy-forms
+pip install mysqlclient
+sukurti projekta : django-admin startproject <name> . 
+paleisti serveri :  python manage.py runserver
+
+*sukurti db*
+
+pip install mysqlclient
+
+pip manage.py makemigrations
+pip manage.py migrate
+
+*posistemes kurimas*
+
+python manage.py startapp <name>
+
+-views.py sukurti funkcija (index(request))
+-posistemes aplanke sukurti faila urls.py ir aprasyti kur nukreipti pagal endpoints
+
+-pagrindineje app urls.py faile nurodyti kur ieskoti naujo app keliu (path('faculty/', include('faculty.urls')),)
+-models.py faile aprasyti objekto atributus
+-pagrindinio app setting.py faile nurodyti i naujo app config klase ('faculty.apps.FacultyConfig')
+
+*administravimas*
+-sukurti administratoriaus paskyra :  python manage.py createsuperuser
+-nueiti i posisteme admin.py faila ir uzregistruoti modeli administravimui (admin.site.register(Faculty)) 
+
+*vaizdai*
+-posistemes views.py faile vaizdo funkcijoje grazinti render su atitinkamu sablonu
+-pagrindini sablona base.html ideti i root aplanke sukurta "templates" aplanka
+-tam kad django rastu base.html sablona reikia pagrindines posistemes settings.py faile TEMPLATES dalyje nurodyti:
+ 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
+*custom naudotojai*
+
+-sukurit naudotojo app
+-sukurit modelius naudotojo ir tvarkytojo (paveldeti is base modeliu)
+-settings.py nurodyti kad bus naudojama custom user
+-sukurit forms.py faila ir jame aprasyti forma
+
+perkurti naudotojo modeli https://www.youtube.com/watch?v=eCeRC7E8Z7Y
+sukurti OneToOne naudotoju profilius , (studentas-> user , destytojas->user)
+
+*statiniai failai* 
+
+-root aplanke sukurti static aplanka
+-settings.py nurodyti staticfiles_dir

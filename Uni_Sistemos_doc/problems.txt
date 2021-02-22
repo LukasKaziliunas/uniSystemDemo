@@ -1,0 +1,26 @@
+https://stackoverflow.com/questions/53637182/django-no-such-table-main-auth-user-old
+
+jei neina insteliuoti mysql kliento , patikrinti ar instaliuotas 64 bitu python ( cmd : "python" )
+
+bootstrapas ideda slim jquery versija, kuri neturi ajax
+
+kai per admin kuri naudotoja nera iskvieciama create_user metodas, o tiesiog ivygdoma 
+insert uzklausa tiesiai i db
+tas pats ir kai naudoji userRegistrationform
+
+
+https://collingrady.wordpress.com/2008/02/18/editing-multiple-objects-in-django-with-newforms/
+
+neina refrensinti css failo, reikia naudoti static files
+https://www.youtube.com/watch?v=kqyfEz7TNI0&t=187s
+
+circular import https://stackoverflow.com/questions/4379042/django-circular-model-import-issue
+
+make field not requared https://stackoverflow.com/questions/7341066/can-i-make-an-admin-field-not-required-in-django-without-creating-a-form
+
+make custom template tags https://docs.djangoproject.com/en/dev/howto/custom-template-tags/
+
+127.0.0.1/:135 Uncaught ReferenceError: $ is not defined kai naudoju jquery , reikia jquery linka iskelti i base template virsu, kad jis 
+butu atsiustas pirmas
+
+iteruoti per post requesta https://stackoverflow.com/questions/3303336/how-to-loop-through-httprequest-post-variables-in-python
